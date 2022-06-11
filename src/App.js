@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Ticket from "./components/Ticket";
+import Seat from "./components/Seat";
+import Screens from "./components/Screens";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Nav />
+      <Routes>
+        <Route path ="/" element = {<div>메인화면</div>}></Route>
+        <Route path ="/login" element = {<div>로그인화면</div>}></Route>
+        <Route path ="/ticket" element = {<Ticket />}></Route>
+        <Route path ="/register" element = {<div>회원가입화면</div>}></Route>
+        <Route path ="/movie" element = {<div>영화화면</div>}></Route>
+        <Route path ="/theater" element = {<Screens />}></Route>
+        <Route path ="/store" element = {<div>스토어화면</div>}></Route>
+        <Route path ="/ticket/reserve" element = {<Seat />}></Route>
+        <Route path ="/event" element = {<div>이벤트화면</div>}></Route>
+        <Route path ="/benefits" element = {<div>혜택화면</div>}></Route>
+      </Routes>
+    </>
   );
 }
 
