@@ -2,16 +2,13 @@ import React from "react";
 import SelectNumberOfPeople from "./SelectNumberOfPeople";
 import UserSelectInfo from "./UserSelectInfo";
 
-const theater = {
-    location: "1관 4층",
-    totalSeat: "184",
-}
 
-const PersonScreen = () => {
+const PersonScreen = (props) => {
+  
   return (
     <div class="person_screen">
-      <SelectNumberOfPeople />
-      <UserSelectInfo props = {theater}/>
+      <SelectNumberOfPeople setCount = {props.setCount}/>
+      <UserSelectInfo movie = {props.movie} time = {props.time}/>
     </div>
   );
 };

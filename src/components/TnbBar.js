@@ -1,7 +1,32 @@
-import React from "react";
+import React ,{useState, useEffect} from "react";
 
 
-const TnbBar = () => {
+const TnbBar = (props) => {
+  const check = (props) => {
+    
+    if ( props.movie === null || props.time === null) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  const [isRight, setIsRight] = useState(false);
+  const [link, setLink] = useState("");
+  useEffect(() => {
+    setIsRight(check(props));
+  }, [props]);
+
+  useEffect(() => {
+    
+    if(isRight) {
+      setLink("/ticket/reserve/"+props.movie._id+"/"+props.time._id);
+    }
+    else {
+      setLink("/ticket/reserve");
+    }
+  }, [isRight]);
+  
   return (
     <div id="ticket_tnb" className="ticket_container">
       <div className="tnb step1">
@@ -18,12 +43,17 @@ const TnbBar = () => {
             </span>
           </div>
         </div>
-        <a
+        {isRight ? <a
           id="tnb_step_btn_right"
-          href="/ticket/reserve"
-          className="btn-right"
+          className="btn-right on"
+          href = {link}
           title="좌석선택"
-        ></a>
+        ></a> : <a
+        id="tnb_step_btn_right"
+        className="btn-right"
+        title="좌석선택"
+      ></a>}
+        
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
 import React from "react";
 
-const NumberButton = ({ props }) => {
+const NumberButton = ( {props, setCount} ) => {
+ 
   return (
-    <li data-count={props.dataCount} class={props.class}>
-      <a href="#">
-        <span>{props.dataCount}</span>
-      </a>
+    <li data-count={props.dataCount} class={props.class} onClick ={setCount}>
+      
+        {props.dataCount}
+      
     </li>
   );
 };

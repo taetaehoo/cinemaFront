@@ -1,30 +1,53 @@
-import React ,{useState, useEffect} from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import Theater from "./Theater";
 
-const theater1 = {
-  name: "2D",
-  floor: "3관 8층",
-  maxCount: "172",
-  time: "20:00",
-  remainCount: 0,
-};
+const TimeSelector = (props) => {
+  const toggleEvent = (sc, event) => {
+    if (!event.target.classList.contains("disabled")) {
+      const div = document.querySelector(".time-list");
+      let lis = div.querySelectorAll("li");
+      const isToggle = event.target.classList.contains("on");
+      lis.forEach((li) => {
+        li.classList.remove("on");
+      });
+      if (isToggle) {
+        props.setTime(null);
+      } else {
+        event.target.classList.add("on");
+        console.log(sc);
+        props.setTime(sc);
+      }
+    }
+  };
 
-const theater2 = {
-  name: "2D",
-  floor: "3관 8층",
-  maxCount: "172",
-  time: "23:00",
-  remainCount: 162,
-};
+  const [screen, setScreen] = useState([]);
 
-const theaters = [theater1, theater2];
-
-const TimeSelector = () => {
-  
+  useEffect(() => {
+    if (screen === []) return;
+    const getData = async (props) => {
+      await axios
+        .get("http://localhost:8000/screen/movie/" + props.movie._id)
+        .then((res) => {
+          setScreen(res.data);
+        })
+        .catch((err) => console.log(err));
+    };
+    getData(props);
+  }, [props]);
   return (
     <div className="time-list">
       <div id="time" className="time-content">
-        <Theater props = {theaters}/>
+        {screen.map((sc) => {
+          return (
+            <Theater
+              theater={sc}
+              onClick={(event) => {
+                toggleEvent(sc, event);
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );

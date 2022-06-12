@@ -1,0 +1,83 @@
+.label {
+    font-size: 16px;
+}
+
+.content2 {
+    width: 60%;
+    
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.seat_group {
+    display: block;
+}
+
+.seat {
+    width: 16px;
+    height: 16px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.group {
+    display: inline-block;
+}
+
+.row {
+    display:flex;
+    flex-direction: column;
+}
+
+.seat.on {
+    background-color: #000;
+}
+
+.seat.disabled {
+    background-color: #888;
+}
+
+#number li {
+    text-align: center;
+    cursor: pointer;
+  }
+  #number li.selected {
+    color: white;
+    font-weight: bold;
+  }
+  
+  ul#seat li.seat {
+    cursor: pointer;
+  }
+
+  .content2 {
+    z-index: 10;
+    width: 60%;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .content {
+    min-height: 200px;
+  }
+
+  .reserveBtn {
+    width: 100%;
+    text-align: right;
+  }
+
+  .reserveBtn a {
+    background-color: red;
+    font-weight: bold;
+    padding: 15px 15px;
+    margin-right: 10px;
+    filter: brightness(0.85);
+    box-shadow: 3px 3px 3px rgba(235, 0, 0. 0.5);
+    cursor: pointer;
+  }
+
+  .reserveBtn a:hover {
+    
+    transition: 1s ease-in-out;
+    filter: brightness(1);
+  }

@@ -6,16 +6,14 @@ import ColHead from "./ColHead";
 
 const SelectMovie = (props) => {
   const [id, setId] = useState("");
-  
   return (
     <div className="section select-movie">
       <ColHead>영화</ColHead>
       <OrderButton setId={setId}/>
       <div className="col-body">
-        <MovieSelector id = {id} selected = {props.selected}/>
+        <MovieSelector id = {id} setMovie = {props.setMovie}/>
         
       </div>
-      {console.log(id)}
     </div>
     
   );

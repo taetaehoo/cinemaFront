@@ -19,7 +19,7 @@ function App() {
         <Route path ="/movie" element = {<div>영화화면</div>}></Route>
         <Route path ="/theater" element = {<Screens />}></Route>
         <Route path ="/store" element = {<div>스토어화면</div>}></Route>
-        <Route path ="/ticket/reserve" element = {<Seat />}></Route>
+        <Route path ="/ticket/reserve/:movie/:time" element = {<Seat />}></Route>
         <Route path ="/event" element = {<div>이벤트화면</div>}></Route>
         <Route path ="/benefits" element = {<div>혜택화면</div>}></Route>
       </Routes>

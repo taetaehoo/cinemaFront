@@ -4,7 +4,7 @@ import axios from "axios";
 const ScreenDetail = (props) => {
   const prop = props.props;
   const [theater, setTheater] = useState({});
-  const [remain, setRemain] = useState({});
+  const [remain, setRemain] = useState([]);
   
   useEffect(() => {
     if(theater === {}) return;
@@ -26,8 +26,9 @@ const ScreenDetail = (props) => {
     .catch((err) => console.log(err));
   }, [prop._id]);
   
-  const re = parseInt(theater.total_seat) - remain;
-  console.log(prop.screen_time);
+  const re = parseInt(theater.total_seat) - remain.length;
+  console.log(prop);
+  const link = "/ticket/reserve/"+prop.movie+"/"+prop._id;
   return (
     <div class="type-hall">
       <div class="info-hall">
@@ -40,7 +41,7 @@ const ScreenDetail = (props) => {
       <div class="info-timetable">
         <ul>
           <li>
-            <a href="#">
+            <a href={link}>
               <em>{prop.screen_time}</em>
               <span class="txt-lightblue">{re}석</span>
             </a>

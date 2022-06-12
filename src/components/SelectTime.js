@@ -4,7 +4,7 @@ import ColHead from "./ColHead";
 
 
 
-const SelectTime = () => {
+const SelectTime = (props) => {
   return (
     <div className="section select-time">
       <ColHead>시간</ColHead>
@@ -13,7 +13,7 @@ const SelectTime = () => {
           <span className="morning">조조</span>
           <span className="night">심야</span>
         </div>
-        <TimeSelector />
+        <TimeSelector movie = {props.movie} setTime = {props.setTime}/>
       </div>
     </div>
   );

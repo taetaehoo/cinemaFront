@@ -15,7 +15,7 @@ const MovieList = () => {
     .catch((err) => console.log(err));
   }, []);
 
-  {console.log(movies)}
+  
 
   return (
     

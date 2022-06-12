@@ -1022,3 +1022,12 @@ dl:after, ul:after, ol:after {
 .ico-grade.grade-15 {
   background-position: -72px 0;
 }
+
+.tnb.step1 .btn-right.on {
+  background-position: -150px -220px;
+}
+
+#sel li.disabled .time {
+  background-color: #888;
+}
+
